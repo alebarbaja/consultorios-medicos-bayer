@@ -1,0 +1,370 @@
+@charset "UTF-8";
+/* FUNCIONES UTILES */
+/************ MIXINS **************/
+/************ FUNCTIONS **************/
+/* HOJA DE ESTILOS GENERAL */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
+}
+
+header {
+  background-color: white;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  /* PONE EL HEADER ENCIMA DE TODO */
+  box-shadow: 0 0 5px 0 rgba(4, 73, 142, 0.5);
+}
+
+.logo {
+  padding: .5em;
+}
+
+.displayed {
+  display: flex;
+}
+
+nav {
+  justify-content: center;
+  display: none;
+}
+
+nav li {
+  list-style-type: none;
+}
+
+label {
+  display: block;
+  line-height: 1.4em;
+  float: right;
+  cursor: pointer;
+  font-size: 1.4em;
+  font-weight: 900;
+  padding: 0.3em;
+}
+
+#toggle {
+  display: none;
+}
+
+#toggle:checked + nav {
+  display: block;
+}
+
+@media screen and (min-width: 56.25em) {
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  label {
+    display: none;
+  }
+  .nav-profesionales {
+    animation-delay: .2s;
+  }
+  .nav-servicios {
+    animation-delay: .3s;
+  }
+  .nav-obras {
+    animation-delay: .4s;
+  }
+  .nav-mapa {
+    animation-delay: .5s;
+  }
+  nav {
+    display: flex;
+  }
+  nav ul {
+    display: flex;
+    margin-right: 1em;
+  }
+  nav ul .nav-a {
+    font-size: 1.1em;
+    border-bottom: 3px solid transparent;
+    transition: all .4s;
+  }
+  nav ul .nav-a:hover {
+    color: black;
+    border-bottom: 3px solid black;
+  }
+}
+
+.nav-a {
+  text-decoration: none;
+  padding: 0.7em;
+  text-align: center;
+  display: block;
+  font-size: 1em;
+  font-weight: 700;
+  color: #04498e;
+}
+
+/* HOME */
+#home {
+  z-index: -1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+  width: 100%;
+  font-weight: 700;
+  font-size: 0.9em;
+  position: relative;
+}
+
+#home::after {
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+  /* PONE EL BG DEBAJO DEL CONTENIDO */
+  opacity: 0.3;
+  background-image: url(../img/bg-01.png);
+  background-size: cover;
+  width: 100%;
+}
+
+.wrapper-home {
+  width: 90%;
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* AGREGA EL SEPARADOR ENTRE TÍTULO Y PÁRRAFO DEL HOME */
+#home h1::after {
+  background-color: black;
+  content: '';
+  display: block;
+  height: 2px;
+  margin: 0.4em auto;
+  width: 15rem;
+}
+
+@media screen and (min-width: 56.25em) {
+  .wrapper-home {
+    width: 50%;
+    margin-right: 3em;
+  }
+  #home::after {
+    opacity: 1;
+  }
+}
+
+/* PROFESIONALES */
+#profesionales {
+  background-image: url(../img/bg-02.png);
+  background-size: cover;
+  color: white;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  font-size: 0.9em;
+  font-weight: 700;
+  padding: 1.5em 0;
+  text-align: center;
+}
+
+#profesionales li {
+  list-style-type: none;
+  padding: 0.4em 0;
+}
+
+.wrapper-profesionales {
+  width: 90%;
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4em;
+}
+
+@media screen and (min-width: 37em) {
+  #profesionales {
+    flex-direction: row;
+    justify-content: center;
+    text-align: left;
+  }
+  #profesionales li {
+    padding: 1em 0;
+  }
+  .wrapper-profesionales {
+    column-count: 2;
+    column-gap: 2rem;
+  }
+}
+
+@media screen and (min-width: 56.25em) {
+  .wrapper-profesionales {
+    margin-right: 5em;
+    width: 60%;
+  }
+}
+
+/* SERVICIOS */
+#servicios {
+  background-image: url(../img/bg-03.png);
+  background-size: cover;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9em;
+  margin-left: auto;
+  margin-right: 30em;
+  padding: 1em 0;
+  width: 100%;
+}
+
+.wrapper-servicios {
+  width: 90%;
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4em;
+}
+
+.servicios {
+  line-height: 1.2em;
+}
+
+.servicios h1 {
+  font-size: 1.2em;
+  padding: 0.5em 0;
+}
+
+@media screen and (min-width: 37em) {
+  #servicios {
+    flex-direction: row;
+  }
+  .wrapper-servicios {
+    column-count: 2;
+    column-gap: 2rem;
+  }
+}
+
+@media screen and (min-width: 56.25em) {
+  #servicios {
+    height: 100vh;
+  }
+  .wrapper-servicios {
+    margin-right: 5em;
+    width: 60%;
+  }
+}
+
+/* OBRAS SOCIALES */
+#obras {
+  background-image: url(../img/bg-04.png);
+  background-size: cover;
+  padding: 1em 0;
+  height: 100%;
+}
+
+#obras li {
+  color: white;
+  font-weight: 600;
+  line-height: 1.7em;
+  list-style-type: none;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.wrapper-obras {
+  width: 90%;
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4em;
+}
+
+@media screen and (min-width: 37em) {
+  #obras li {
+    list-style-type: none;
+    padding: 0.5em 0;
+    text-align: left;
+  }
+  .wrapper-obras {
+    column-count: 2;
+    column-gap: 3rem;
+  }
+}
+
+@media screen and (min-width: 56.25em) {
+  .wrapper-obras {
+    padding-left: 0.5em;
+    margin-right: 5em;
+    width: 60%;
+  }
+}
+
+/* FOOTER */
+footer {
+  background-image: url(../img/footer.png);
+  background-size: cover;
+  bottom: 0;
+  color: white;
+  font-size: 0.9em;
+  padding-top: 0.5em;
+  position: fixed;
+  text-align: center;
+  width: 101%;
+  box-shadow: 0 0 5px 0 rgba(4, 73, 142, 0.5);
+}
+
+footer .copyright {
+  background-color: #009FE3;
+  font-size: 0.8em;
+  font-weight: 600;
+  padding: 1em 0;
+  margin-top: 0.7em;
+}
+
+@media screen and (min-width: 37em) {
+  footer {
+    text-align: left;
+  }
+  footer .copyright {
+    font-size: 1em;
+    text-align: center;
+    padding: 0.5em 0;
+  }
+  .ubicacion {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1em;
+  }
+}
+
+/* MAPA */
+#mapa iframe {
+  width: 100%;
+  height: 30rem;
+  border: 0;
+  margin: 0 0 5.5em;
+}
+
+@media screen and (min-width: 37em) {
+  #mapa iframe {
+    margin: 0 0 5em;
+  }
+}
+
+@media screen and (min-width: 56.25em) {
+  #mapa iframe {
+    height: 31rem;
+    margin-bottom: 6em;
+  }
+}
+ 
+
+ /*# sourceMappingURL= styles.css.map */

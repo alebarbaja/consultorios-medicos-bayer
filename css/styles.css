@@ -253,7 +253,8 @@ label {
 
 @media screen and (min-width: 56.25em) {
   #servicios {
-    height: 100vh;
+    height: 90vh;
+    align-items: center;
   }
   .wrapper-servicios {
     margin-right: 5em;
